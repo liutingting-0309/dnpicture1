@@ -1,5 +1,7 @@
 <template>
-	
+	<view>
+		horizontal
+	</view>
 </template>
 
 <script>

@@ -1,4 +1,10 @@
 {
+	"easycom": {
+			"autoscan": true,
+			"custom": {
+				"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+			}
+		},
 	"pages": [ 
 		{
 			"path": "pages/home/index",
@@ -30,17 +36,16 @@
 				"navigationBarTitleText": "我的"
 			}
 		}
-	],
+	    
+    ],
 		
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "懂你找图",
+		"navigationBarBackgroundColor": "#000"
 	},
-	
 	"tabBar": {
-		"color": "#4224ee",
+		"color": "#ee5caf",
 		"selectedColor": "#d86519",
 		"backgroundColor": "#b1b6b8",
 		"position":"bottom",
@@ -77,5 +82,6 @@
 	]
 	  },
 	  "usingComponents": {}
+	  
 	}
 

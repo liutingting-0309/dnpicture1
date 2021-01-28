@@ -1,5 +1,5 @@
 <template>
-	
+	<view>video</view>
 </template>
 
 <script>

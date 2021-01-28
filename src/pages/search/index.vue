@@ -1,5 +1,5 @@
 <template>
-	
+	<view>search</view>
 </template>
 
 <script>
