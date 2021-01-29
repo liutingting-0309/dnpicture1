@@ -12,8 +12,7 @@
 			</view>	
 			<view class="home_tab_content">
 				<view v-if="current === 0">
-						<homeRecommend ></homeRecommend>
-			
+					<homeRecommend></homeRecommend>
 				</view>	
 				<view v-if="current === 1">
 					<homeCategory></homeCategory>
@@ -22,7 +21,7 @@
 					<homeNew></homeNew>
 				</view>
 				<view v-if="current === 3">
-						<homeAlbum></homeAlbum>
+					<homeAlbum></homeAlbum>
 				</view>
 			</view>
 			<!-- {{Recommends[1].thumb}} -->
@@ -48,12 +47,15 @@
 					{title:'最新'},
 					{title:'专辑'}
 					],
-				Recommends:[],
+				// Recommends:[],
 				current: 0
 			}
 		},
 		// onLoad() {
+			
+		// 	console.log("ooo")
 		// 	this.request({
+				
 		// 		// 接口不能用
 		// 		// url:"http://157.122.54.189:9088/image/v3/homepage/vertical",
 		// 		// 备用接口 可以看下面(部分图片没有 唉 再次认识到全栈的重要性~)
