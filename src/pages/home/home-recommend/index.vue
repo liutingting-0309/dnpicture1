@@ -93,7 +93,7 @@
 						// 热门模块
 						// 数组拼接模式
 						this.hotlist = [...this.hotlist,...res.res.vertical];
-						console.log(this.hotlist);
+						// console.log(this.hotlist);
 						
 					});
 			},

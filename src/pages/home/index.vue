@@ -48,7 +48,7 @@
 					{title:'专辑'}
 					],
 				// Recommends:[],
-				current: 0
+				current: 3
 			}
 		},
 		// onLoad() {
