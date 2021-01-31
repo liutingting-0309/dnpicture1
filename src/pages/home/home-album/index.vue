@@ -1,10 +1,9 @@
 <template>
-	<view>
+	<scroll-view @click="handleToLower()" scroll-y>
 		<!-- swiper
 		 1.自动轮播autoplay
 		 2.指示器 indicator-dots
 		 3.衔接轮播 circular
-		 
 		 4.swiper
 		 默认高度为 150px
 		 5.image
@@ -24,9 +23,9 @@
 		 </view>
 		 <!-- 轮播图结束 -->
 		 <view class="album_list">
-			 <view class="album_item" v-for="item in albumlist" :key="item.id">
+			 <navigator  class="album_item" v-for="item in albumlist" :key="item.id" :url="`/pages/album/index?id=${item.id}`">
 				 <view  class="album_item_img" >
-					<image class="album_item_img" :src="item.cover" ></image>
+					<image class="album_item_img" mode="aspectFill" :src="item.cover" ></image>
 				 </view>
 				 <view class="album_item_info">
 					 <view class="album_item_title">{{item.name}}</view>
@@ -35,9 +34,9 @@
 						<view class="btn_txt">+ 关注</view>
 					 </view>
 				 </view>
-			 </view>
+			 </navigator>
 		 </view>
-	</view>
+	</scroll-view>
 </template>
 
 <script>
@@ -51,27 +50,46 @@
 				},
 				// 轮播图列表
 				bannerlist:[],
-				albumlist:[]
+				albumlist:[],
+				hasMore:true
 			}
 		},
 		 mounted() {
+			 console.log("mounted")
 		 	this.getList();
 		 },
 		methods: {
 			// 获取数据
 			getList(){
-				this.request({
+				console.log("getlist")
+					this.request({
 					url:"http://service.picasso.adesk.com/v1/wallpaper/album",
 					data: this.pramas
 				})
 				.then(res => {
 					console.log(res)
+					if(res.res.album.length === 0){
+						this.hasMore = false;
+						return
+					}
 					// 轮播图列表
-					this.bannerlist = res.res.banner
+					this.bannerlist = res.res.banner	
 					// 列表数据
+					// this.albumlist = [...this.albumlist,...res.res.album]
 					this.albumlist = res.res.album
 					console.log(this.albumlist)
 				})
+			},
+			handleToLower(){
+				if(this.hasMore){
+					this.pramas.skip += this.pramas.limit;
+					this.getList();
+				}else{
+					uni.showToast({
+						title:'没有跟多数据了',
+						icon: none
+					})
+				}
 			},
 		}
 	}

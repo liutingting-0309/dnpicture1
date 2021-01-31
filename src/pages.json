@@ -37,6 +37,15 @@
 			}
 		}
 	    
+        ,{
+            "path" : "pages/album/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "专辑详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 		
 	"globalStyle": {
