@@ -3,9 +3,9 @@
 	<scroll-view @click="handleToLower()" class="recommend_view" scroll-y v-if="recommends.length>0">
 		<!-- 推荐 开始 -->
 		<view class="recommend_wrap">
-			<view class="recommend_item" v-for="item in recommends" :key="item.id">
+			<navigator class="recommend_item" v-for="item in recommends" :key="item.id" :url="`/pages/album/index?id=${item.target}`">
 				<image class="recommend_img" mode="widthFix" :src="item.thumb"></image>
-			</view>
+			</navigator>
 		</view>
 		<!-- 推荐 结束 -->
 		<!-- 月份 开始 -->
@@ -21,8 +21,10 @@
 				<view class="moneths_title_more">更多 ></view>
 			</view>
 			<view  class="moneths_content" >
-				<view class="moneths_imgs" v-for="item in montheslist.items" :key="item.id">
+				<view class="moneths_imgs" v-for="(item,index) in montheslist.items" :key="item.id">
+				<go-detail :list="montheslist.items" :index="index">
 					<image class="moneths_img" :src="item.thumb+item.rule.replace('$<Height>', 360)" mode="aspectFill"></image>
+				</go-detail>
 				</view>
 			</view>
 		</view>
@@ -32,7 +34,7 @@
 			<view class="hot_title"><text>热门</text></view>
 			<view class="hot_imgs">
 				<view class="hot_img" v-for="item in hotlist" :key="item.id">
-					<image class="hot_image" :src="item.thumb" mode="widthFix"></image>
+						<image class="hot_image" :src="item.thumb" mode="widthFix"></image>				
 				</view>
 			</view>
 		</view>
@@ -42,6 +44,7 @@
 
 <script>
 	import moment from "moment";
+	import goDetail from "@/components/goDetail";
 	export default {
 		data() {
 			return {
@@ -68,7 +71,9 @@
 		mounted() {
 			this.getList();
 		},
-
+		components:{
+			goDetail
+		},
 		methods: {
 			// 请求数据
 			getList(){

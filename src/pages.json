@@ -46,6 +46,15 @@
             }
             
         }
+        , {
+           "path" : "pages/imgDetail/imgDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "图片详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 		
 	"globalStyle": {

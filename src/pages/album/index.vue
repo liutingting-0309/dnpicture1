@@ -38,13 +38,27 @@
 				// 详情信息
 				album:[],
 				// 专辑列表
-				wallpaper:[]
+				wallpaper:[],
+				hasMore:true
 			}
 		},
 		onLoad(options){
 			console.log(options)
 			this.id = options.id;
 			this.getList();
+		},
+		onReachBottom(){
+			if(this.hasMore){
+				this.params.first = 0;
+				this.params.skip += this.params.limit;
+				this.getlist();	
+			}else{
+				uni.showToast({
+					title:"到底了",
+					icon:"none"
+				})
+			}
+			
 		},
 		methods: {
 			getList(){
@@ -53,9 +67,15 @@
 					data:this.params
 				})
 				.then(res =>{
-					this.album = res.res.album;
-					console.log(this.album);
-					this.wallpaper = res.res.wallpaper;
+					if(Object.keys(this.album).length === 0){
+						this.album = res.res.album;
+						console.log(this.album);
+					}
+					if(res.res.wallpaper.length === 0){
+						this.hasMore = false;
+						return;
+					}
+					this.wallpaper =  [...this.wallpaper,...res.res.wallpaper];
 					console.log(this.wallpaper);
 				})
 			}
