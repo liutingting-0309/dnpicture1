@@ -67,7 +67,7 @@
 					data: this.pramas
 				})
 				.then(res => {
-					console.log(res)
+					// console.log(res)
 					if(res.res.album.length === 0){
 						this.hasMore = false;
 						return
@@ -77,13 +77,13 @@
 					// 列表数据
 					// this.albumlist = [...this.albumlist,...res.res.album]
 					this.albumlist = res.res.album
-					console.log(this.albumlist)
+					// console.log(this.albumlist)
 				})
 			},
 			handleToLower(){
 				if(this.hasMore){
 					this.pramas.skip += this.pramas.limit;
-					this.getList();
+					// this.getList();
 				}else{
 					uni.showToast({
 						title:'没有跟多数据了',

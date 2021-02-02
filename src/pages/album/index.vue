@@ -45,6 +45,7 @@
 		onLoad(options){
 			console.log(options)
 			this.id = options.id;
+			// this.id = "5e206ca6e7bce73981fb0752";
 			this.getList();
 		},
 		onReachBottom(){
@@ -69,13 +70,14 @@
 				.then(res =>{
 					if(Object.keys(this.album).length === 0){
 						this.album = res.res.album;
-						console.log(this.album);
+						console.log(res.res);
 					}
 					if(res.res.wallpaper.length === 0){
 						this.hasMore = false;
 						return;
 					}
 					this.wallpaper =  [...this.wallpaper,...res.res.wallpaper];
+					console.log("wallpaper");
 					console.log(this.wallpaper);
 				})
 			}
