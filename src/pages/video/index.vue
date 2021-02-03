@@ -10,8 +10,8 @@
 			</view>
 		</view>	
 		<view class="video-body">
-			<video-recommend v-if="current < 4"></video-recommend>
-			<video-categroy v-else></video-categroy>
+			<video-recommend v-if="current < 4" :objurl="{url:items[current].url,params:items[current].params}"></video-recommend>
+			<video-categroy v-else  :objurl="{url:items[current].url,params:items[current].params}"></video-categroy>
 		</view>
 		
 	</view>
@@ -30,12 +30,12 @@
 					order:"hot"
 				},
 				items: [
-					{title:'推荐'},
-					{title:'娱乐'},
-					{title:'最新'},
-					{title:'热门'},
-					{title:'分类'}
-					],
+					{title:'推荐',url:"http://service.picasso.adesk.com/v1/wallpaper/album",params:{limit:30,skip:0,order:"new"}},
+					{title:'娱乐',url:"http://service.picasso.adesk.com/v1/videowp/category/59b25abbe7bce76bc834198a",params:{limit:30,skip:0,order:"new"}},
+					{title:'最新',url:"http://service.picasso.adesk.com/v1/videowp/videowp",params:{limit:30,skip:0,order:"new"}},
+					{title:'热门',url:"http://service.picasso.adesk.com/v1/videowp/videowp",params:{limit:30,skip:0,order:"hot"}},
+					{title:'分类',url:"http://service.picasso.adesk.com/v1/videowp/category",params:{}}
+  					],
 				current: 0
 			}
 		},
