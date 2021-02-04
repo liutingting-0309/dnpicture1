@@ -1,7 +1,7 @@
 <template>
 	<scroll-view scroll-y>
 			<view class="videowp">
-				<navigator :url="`/pages/album/index?id=${item.id}`" class="videowp_imgs"  v-for="item in videowp" :key="item.id">
+				<navigator :url="`/pages/videoplay/videoplay?id=${item.id}`" class="videowp_imgs"  v-for="item in videowp" :key="item.id">
 					<image class="videowp_img" :src="item.cover" mode="aspectFill"></image>
 			</navigator>
 			</view>

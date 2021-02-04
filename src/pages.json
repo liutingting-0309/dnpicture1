@@ -6,6 +6,7 @@
 			}
 		},
 	"pages": [ 
+	
 		{
 			"path": "pages/video/index",
 			"style": {
@@ -56,7 +57,12 @@
                 "enablePullDownRefresh": false
             }
             
-        }
+        },
+		{
+		    "path" : "pages/videoplay/videoplay",
+		    "style" : {}
+		}
+        
     ],
 		
 	"globalStyle": {
